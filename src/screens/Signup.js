@@ -1,8 +1,20 @@
 import { useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react';
-import { Text, View, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import {
+  Text,
+  View,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  FlatList,
+} from 'react-native';
 import { Button, InputField } from '../components';
-import { orangeLogo } from '../theme/Images';
+import {
+  glassDoors,
+  interiorDoors,
+  orangeLogo,
+  windows,
+} from '../theme/Images';
 import { FontStyles } from '../theme/styles/Fonts';
 import { LayoutStyles } from '../theme/styles/Layout';
 import ThemeConstants, { Colors, FontSize } from '../theme/ThemeConstants';
@@ -18,8 +30,10 @@ const Signup = () => {
   const [travel, setTravel] = useState('');
   const [loading, setLoading] = useState(false);
   const [buttonDisabled, setButtonDisabled] = useState(false);
-  const [step, setStep] = useState(2);
+  const [step, setStep] = useState(3);
   const navigation = useNavigation();
+
+  const servicesList = [windows, glassDoors, interiorDoors];
 
   const onSubmit = () => {
     if (step === 1) {
@@ -41,10 +55,12 @@ const Signup = () => {
       } else {
         setStep(2);
       }
-    } else {
+    } else if (step === 2) {
+      setStep(3);
+    } else if (step === 3) {
       setLoading(true);
       setButtonDisabled(true);
-      alert('Login');
+      alert('Sign Up');
     }
     setLoading(false);
     setButtonDisabled(false);
@@ -116,6 +132,16 @@ const Signup = () => {
         </>
       );
     } else if (step === 3) {
+      return (
+        <FlatList
+          scrollEnabled={false}
+          data={servicesList}
+          renderItem={({ item, index }) => (
+            <Image source={item} key={index} style={styles.flatlistImage} />
+          )}
+          numColumns={'2'}
+        />
+      );
     }
   };
 
@@ -156,18 +182,10 @@ const Signup = () => {
 export default Signup;
 
 const styles = StyleSheet.create({
-  emailTextView: {
-    width: '60%',
-    height: 40,
-    borderRadius: 50,
-    backgroundColor: ThemeConstants.Colors.primary,
-    alignItems: 'center',
-    justifyContent: 'center',
-    opacity: 0.5,
-    marginBottom: 20,
-  },
-  emailText: {
-    textAlign: 'center',
-    color: ThemeConstants.Colors.text,
+  flatlistImage: {
+    margin: 5,
+    height: 160,
+    width: 160,
+    resizeMode: 'contain',
   },
 });
