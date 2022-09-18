@@ -23,17 +23,22 @@ export const FontStyles = StyleSheet.create({
     color: Colors.text,
   },
   titleSmall: {
-    fontSize: FontSize.small * 2,
+    fontSize: FontSize.small * 1.6,
     fontWeight: 'bold',
     color: Colors.text,
   },
+  titleSmallOrange: {
+    fontSize: FontSize.small * 2,
+    fontWeight: 'bold',
+    color: Colors.primary,
+  },
   titleRegular: {
-    fontSize: FontSize.regular * 2,
+    fontSize: FontSize.regular * 1.6,
     fontWeight: 'bold',
     color: Colors.text,
   },
   titleLarge: {
-    fontSize: FontSize.large * 2,
+    fontSize: FontSize.large * 1.6,
     fontWeight: 'bold',
     color: Colors.text,
   },
