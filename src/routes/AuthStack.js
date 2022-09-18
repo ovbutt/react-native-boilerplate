@@ -10,7 +10,7 @@ const AuthStack = () => {
     <SafeAreaView style={{ flex: 1 }}>
       <Stack.Navigator
         screenOptions={{ headerShown: false }}
-        initialRouteName={'login'}
+        initialRouteName={'forgotPassword'}
       >
         <Stack.Screen
           name="login"
@@ -18,7 +18,7 @@ const AuthStack = () => {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="signUp"
+          name="signup"
           component={Signup}
           options={{ headerShown: false }}
         />

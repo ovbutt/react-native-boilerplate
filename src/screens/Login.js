@@ -1,5 +1,6 @@
+import { useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react';
-import { Text, View, Image, StyleSheet } from 'react-native';
+import { Text, View, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { Button, InputField } from '../components';
 import { orangeLogo } from '../theme/Images';
 import { FontStyles } from '../theme/styles/Fonts';
@@ -12,13 +13,23 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const [buttonDisabled, setButtonDisabled] = useState(false);
   const [step, setStep] = useState(1);
+  const navigation = useNavigation();
 
   const onSubmit = () => {
     if (step === 1) {
-      setStep(2);
+      if (email === '') {
+        alert('Email cannot be empty');
+        return;
+      } else {
+        setStep(2);
+      }
     } else {
+      setLoading(true);
+      setButtonDisabled(true);
       alert('Login');
     }
+    setLoading(false);
+    setButtonDisabled(false);
   };
 
   return (
@@ -56,14 +67,18 @@ const Login = () => {
         loading={loading}
       />
       {step === 1 ? (
-        <Text style={{ marginTop: 30 }}>
-          Need an account?{' '}
-          <Text style={{ color: Colors.primary }}>Sign Up</Text>
-        </Text>
+        <TouchableOpacity onPress={() => navigation.navigate('signup')}>
+          <Text style={{ marginTop: 30 }}>
+            Need an account?
+            <Text style={{ color: Colors.primary }}> Sign Up</Text>
+          </Text>
+        </TouchableOpacity>
       ) : (
-        <Text style={{ color: Colors.primary, marginTop: 30 }}>
-          Forgot Password
-        </Text>
+        <TouchableOpacity onPress={() => navigation.navigate('forgotPassword')}>
+          <Text style={{ color: Colors.primary, marginTop: 30 }}>
+            Forgot Password
+          </Text>
+        </TouchableOpacity>
       )}
     </View>
   );
