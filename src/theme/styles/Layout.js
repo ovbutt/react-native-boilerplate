@@ -14,7 +14,6 @@ export const LayoutStyles = StyleSheet.create({
     flexDirection: 'column-reverse',
   },
   colCenter: {
-    flex: 1,
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',

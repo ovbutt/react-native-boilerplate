@@ -7,6 +7,7 @@ export const Colors = {
   primary: '#FDAA63',
   success: '#28a745',
   error: '#dc3545',
+  grey: '#979797',
 };
 
 export const NavigationColors = {
@@ -17,9 +18,9 @@ export const NavigationColors = {
  * FontSize
  */
 export const FontSize = {
-  small: 16,
-  regular: 20,
-  large: 40,
+  small: 14,
+  regular: 18,
+  large: 36,
 };
 
 /**
