@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import React, { useEffect } from 'react';
-import { Text } from 'react-native';
+import { ImageBackground, Text } from 'react-native';
 
 const Splash = () => {
   const navigation = useNavigation();
@@ -8,13 +8,14 @@ const Splash = () => {
   useEffect(() => {
     setTimeout(() => {
       navigation.replace('authStack');
-    }, 1000);
+    }, 3000);
   }, [navigation]);
 
   return (
-    <>
-      <Text>Splash</Text>
-    </>
+    <ImageBackground
+      source={require('../assets/images/loadsplash.png')}
+      style={{ height: '100%', width: '100%' }}
+    />
   );
 };
 
