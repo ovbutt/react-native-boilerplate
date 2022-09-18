@@ -32,20 +32,18 @@ const Login = () => {
     setButtonDisabled(false);
   };
 
-  return (
-    <View style={[LayoutStyles.colCenter, { marginTop: 80 }]}>
-      <Image source={orangeLogo} />
-      <Text style={[{ margin: 50 }, FontStyles.titleSmall]}>
-        Contractor Sign In
-      </Text>
-      {step === 1 ? (
+  const renderView = () => {
+    if (step === 1) {
+      return (
         <InputField
           labelText="Email"
           value={email}
           onChangeText={setEmail}
           placeholder="yourname@email.com"
         />
-      ) : (
+      );
+    } else {
+      return (
         <>
           <View style={styles.emailTextView}>
             <Text style={styles.emailText}>{email}</Text>
@@ -57,8 +55,36 @@ const Login = () => {
             placeholder="Password"
           />
         </>
-      )}
+      );
+    }
+  };
 
+  const renderBottomLabel = () => {
+    if (step === 1) {
+      return (
+        <TouchableOpacity onPress={() => navigation.navigate('signup')}>
+          <Text style={{ marginTop: 30 }}>
+            Need an account?
+            <Text style={{ color: Colors.primary }}> Sign Up</Text>
+          </Text>
+        </TouchableOpacity>
+      );
+    } else {
+      <TouchableOpacity onPress={() => navigation.navigate('forgotPassword')}>
+        <Text style={{ color: Colors.primary, marginTop: 30 }}>
+          Forgot Password
+        </Text>
+      </TouchableOpacity>;
+    }
+  };
+
+  return (
+    <View style={[LayoutStyles.colCenter, { marginTop: 80 }]}>
+      <Image source={orangeLogo} />
+      <Text style={[{ margin: 50 }, FontStyles.titleSmall]}>
+        Contractor Sign In
+      </Text>
+      {renderView()}
       <View style={{ margin: 10 }} />
       <Button
         onPress={onSubmit}
@@ -66,20 +92,7 @@ const Login = () => {
         disabled={buttonDisabled}
         loading={loading}
       />
-      {step === 1 ? (
-        <TouchableOpacity onPress={() => navigation.navigate('signup')}>
-          <Text style={{ marginTop: 30 }}>
-            Need an account?
-            <Text style={{ color: Colors.primary }}> Sign Up</Text>
-          </Text>
-        </TouchableOpacity>
-      ) : (
-        <TouchableOpacity onPress={() => navigation.navigate('forgotPassword')}>
-          <Text style={{ color: Colors.primary, marginTop: 30 }}>
-            Forgot Password
-          </Text>
-        </TouchableOpacity>
-      )}
+      {renderBottomLabel()}
     </View>
   );
 };
