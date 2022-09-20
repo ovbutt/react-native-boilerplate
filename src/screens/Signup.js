@@ -9,6 +9,7 @@ import {
   FlatList,
 } from 'react-native';
 import { Button, InputField } from '../components';
+import { backArrow } from '../theme/Icons';
 import {
   glassDoors,
   interiorDoors,
@@ -30,7 +31,7 @@ const Signup = () => {
   const [travel, setTravel] = useState('');
   const [loading, setLoading] = useState(false);
   const [buttonDisabled, setButtonDisabled] = useState(false);
-  const [step, setStep] = useState(3);
+  const [step, setStep] = useState(1);
   const navigation = useNavigation();
 
   const servicesList = [windows, glassDoors, interiorDoors];
@@ -91,6 +92,7 @@ const Signup = () => {
             onChangeText={setEmail}
             placeholder="yourname@email.com"
           />
+          <View style={{ margin: 10 }} />
 
           <InputField
             labelText="Password"
@@ -155,9 +157,25 @@ const Signup = () => {
     }
   };
 
+  const onBackPress = () => {
+    if (step === 1) {
+      navigation.goBack();
+    } else {
+      setStep(step - 1);
+    }
+  };
+
   return (
-    <View style={[LayoutStyles.colCenter, { marginTop: 80 }]}>
-      <Image source={orangeLogo} />
+    <View style={[LayoutStyles.colCenter, { marginTop: 40 }]}>
+      <View style={styles.header}>
+        <TouchableOpacity
+          style={{ position: 'absolute', left: 20 }}
+          onPress={() => onBackPress()}
+        >
+          <Image source={backArrow} />
+        </TouchableOpacity>
+        <Image source={orangeLogo} />
+      </View>
       <Text style={[{ margin: 50 }, FontStyles.titleSmall]}>
         {renderTitle()}
       </Text>
@@ -187,5 +205,10 @@ const styles = StyleSheet.create({
     height: 160,
     width: 160,
     resizeMode: 'contain',
+  },
+  header: {
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

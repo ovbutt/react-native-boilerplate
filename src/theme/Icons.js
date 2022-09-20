@@ -1,4 +1,4 @@
-export const back = require('../assets/icons/leftcircle.png');
+export const backArrow = require('../assets/icons/leftcircle.png');
 export const home = require('../assets/icons/home.png');
 export const projects = require('../assets/icons/document.png');
 export const staff = require('../assets/icons/staff.png');

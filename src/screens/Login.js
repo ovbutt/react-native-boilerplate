@@ -53,6 +53,7 @@ const Login = () => {
             value={password}
             onChangeText={setPassword}
             placeholder="Password"
+            secureTextEntry={true}
           />
         </>
       );
@@ -70,16 +71,18 @@ const Login = () => {
         </TouchableOpacity>
       );
     } else {
-      <TouchableOpacity onPress={() => navigation.navigate('forgotPassword')}>
-        <Text style={{ color: Colors.primary, marginTop: 30 }}>
-          Forgot Password
-        </Text>
-      </TouchableOpacity>;
+      return (
+        <TouchableOpacity onPress={() => navigation.navigate('forgotPassword')}>
+          <Text style={{ color: Colors.primary, marginTop: 30 }}>
+            Forgot Password
+          </Text>
+        </TouchableOpacity>
+      );
     }
   };
 
   return (
-    <View style={[LayoutStyles.colCenter, { marginTop: 80 }]}>
+    <View style={[LayoutStyles.colCenter, { marginTop: 40 }]}>
       <Image source={orangeLogo} />
       <Text style={[{ margin: 50 }, FontStyles.titleSmall]}>
         Contractor Sign In

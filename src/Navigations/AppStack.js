@@ -21,7 +21,7 @@ const AppStack = () => {
           options={{ headerShown: false }}
         />
         <Stack.Screen name="authStack" component={AuthStack} />
-        <Stack.Screen name="tabNavigation" component={TabNavigation} />
+        <Stack.Screen name="appStack" component={TabNavigation} />
       </Stack.Navigator>
     </NavigationContainer>
   );

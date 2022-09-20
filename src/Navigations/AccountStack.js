@@ -8,15 +8,8 @@ const Stack = createNativeStackNavigator();
 const AccountStack = () => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <Stack.Navigator
-        screenOptions={{ headerShown: false }}
-        initialRouteName={'account'}
-      >
-        <Stack.Screen
-          name="account"
-          component={Account}
-          options={{ headerShown: false }}
-        />
+      <Stack.Navigator initialRouteName={'account'}>
+        <Stack.Screen name="account" component={Account} />
       </Stack.Navigator>
     </SafeAreaView>
   );

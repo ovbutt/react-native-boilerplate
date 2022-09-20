@@ -8,6 +8,7 @@ import ProjectStack from './ProjectsStack';
 import StaffStack from './StaffStack';
 import { account, home, notification, projects, staff } from '../theme/Icons';
 import { ThemeConstants } from '../theme';
+import { Header } from '../components';
 
 const Tab = createBottomTabNavigator();
 
@@ -19,6 +20,9 @@ function TabNavigation() {
           headerShown: false,
           tabBarShowLabel: false,
           tabBarActiveTintColor: ThemeConstants.Colors.primary,
+          header: ({ navigation, route, options }) => {
+            return <Header />;
+          },
         }}
         initialRouteName="Home"
       >
