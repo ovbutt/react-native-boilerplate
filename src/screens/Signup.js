@@ -19,7 +19,7 @@ import {
 import { FontStyles } from '../theme/styles/Fonts';
 import { LayoutStyles } from '../theme/styles/Layout';
 import ThemeConstants, { Colors, FontSize } from '../theme/ThemeConstants';
-// import Slider from '@react-native-community/slider';
+import { Slider } from 'native-base';
 
 const Signup = () => {
   const [firstName, setFirstName] = useState('');
@@ -131,6 +131,12 @@ const Signup = () => {
             minimumTrackTintColor="#FFFFFF"
             maximumTrackTintColor="#000000"
           /> */}
+          <Slider defaultValue={70} style={{ width: '90%' }}>
+            <Slider.Track>
+              <Slider.FilledTrack bgColor={ThemeConstants.Colors.primary} />
+            </Slider.Track>
+            <Slider.Thumb bgColor={ThemeConstants.Colors.primary} />
+          </Slider>
         </>
       );
     } else if (step === 3) {

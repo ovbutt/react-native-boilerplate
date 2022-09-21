@@ -15,11 +15,7 @@ const AppStack = () => {
         screenOptions={{ headerShown: false }}
         initialRouteName="splash"
       >
-        <Stack.Screen
-          name="splash"
-          component={Splash}
-          options={{ headerShown: false }}
-        />
+        <Stack.Screen name="splash" component={Splash} />
         <Stack.Screen name="authStack" component={AuthStack} />
         <Stack.Screen name="appStack" component={TabNavigation} />
       </Stack.Navigator>

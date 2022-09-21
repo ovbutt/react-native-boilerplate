@@ -17,7 +17,7 @@ function TabNavigation() {
     <SafeAreaView style={{ flex: 1 }}>
       <Tab.Navigator
         screenOptions={{
-          headerShown: false,
+          // headerShown: false,
           tabBarShowLabel: false,
           tabBarActiveTintColor: ThemeConstants.Colors.primary,
           header: ({ navigation, route, options }) => {

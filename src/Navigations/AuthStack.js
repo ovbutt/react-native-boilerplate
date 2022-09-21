@@ -12,26 +12,10 @@ const AuthStack = () => {
         screenOptions={{ headerShown: false }}
         initialRouteName={'login'}
       >
-        <Stack.Screen
-          name="login"
-          component={Login}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="signup"
-          component={Signup}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="forgotPassword"
-          component={ForgotPassword}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="thankyou"
-          component={Thankyou}
-          options={{ headerShown: false }}
-        />
+        <Stack.Screen name="login" component={Login} />
+        <Stack.Screen name="signup" component={Signup} />
+        <Stack.Screen name="forgotPassword" component={ForgotPassword} />
+        <Stack.Screen name="thankyou" component={Thankyou} />
       </Stack.Navigator>
     </SafeAreaView>
   );
