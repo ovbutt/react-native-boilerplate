@@ -9,14 +9,10 @@ const ProjectStack = () => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <Stack.Navigator
-        screenOptions={{ headerShown: false }}
         initialRouteName={'projects'}
+        screenOptions={{ headerShown: false }}
       >
-        <Stack.Screen
-          name="projects"
-          component={Projects}
-          options={{ headerShown: false }}
-        />
+        <Stack.Screen name="projects" component={Projects} />
       </Stack.Navigator>
     </SafeAreaView>
   );

@@ -87,6 +87,6 @@ const styles = StyleSheet.create({
     width: '90%',
     color: ThemeConstants.Colors.text,
     paddingLeft: 10,
-    height: 40,
+    height: 50,
   },
 });

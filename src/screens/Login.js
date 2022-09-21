@@ -6,6 +6,7 @@ import { orangeLogo } from '../theme/Images';
 import { FontStyles } from '../theme/styles/Fonts';
 import { LayoutStyles } from '../theme/styles/Layout';
 import ThemeConstants, { Colors, FontSize } from '../theme/ThemeConstants';
+import { Icon } from 'native-base';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -26,7 +27,7 @@ const Login = () => {
     } else {
       setLoading(true);
       setButtonDisabled(true);
-      alert('Login');
+      navigation.replace('appStack');
     }
     setLoading(false);
     setButtonDisabled(false);
@@ -54,6 +55,7 @@ const Login = () => {
             onChangeText={setPassword}
             placeholder="Password"
             secureTextEntry={true}
+            // rightIcon={<Icon as={FontAwesome} name="home" />}
           />
         </>
       );

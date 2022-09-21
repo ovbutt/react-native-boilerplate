@@ -8,10 +8,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ThemeConstants } from '../theme';
 
-const Button = ({ title, onPress, color, small, loading, disabled }) => {
+const Button = ({
+  title,
+  onPress,
+  color,
+  small,
+  loading,
+  disabled,
+  buttonStyles,
+  labelStyles,
+}) => {
   return (
     <TouchableOpacity
-      style={[styles.button, { backgroundColor: color }]}
+      style={[styles.button, { ...buttonStyles, backgroundColor: color }]}
       onPress={onPress ? onPress : () => alert('Clicked')}
       disabled={disabled}
     >
@@ -21,7 +30,7 @@ const Button = ({ title, onPress, color, small, loading, disabled }) => {
           color={ThemeConstants.Colors.text}
         />
       ) : (
-        <Text style={styles.label}> {title} </Text>
+        <Text style={[styles.label, { ...labelStyles }]}> {title} </Text>
       )}
     </TouchableOpacity>
   );
@@ -41,16 +50,16 @@ Button.propTypes = {
 
 Button.defaultProps = {
   title: 'Click Me',
-  color: ThemeConstants.Colors.primary,
   small: false,
   loading: false,
   disabled: false,
+  color: ThemeConstants.Colors.primary,
 };
 
 const styles = StyleSheet.create({
   button: {
     width: '90%',
-    height: 45,
+    height: 50,
     borderRadius: 5,
     justifyContent: 'center',
     alignItems: 'center',

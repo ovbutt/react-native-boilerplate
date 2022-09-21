@@ -8,6 +8,7 @@ export const Colors = {
   success: '#28a745',
   error: '#dc3545',
   grey: '#979797',
+  black: '#000000',
 };
 
 export const NavigationColors = {
