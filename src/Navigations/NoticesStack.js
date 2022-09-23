@@ -8,7 +8,10 @@ const Stack = createNativeStackNavigator();
 const NoticesStack = () => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <Stack.Navigator initialRouteName={'notices'}>
+      <Stack.Navigator
+        initialRouteName={'notices'}
+        screenOptions={{ headerShown: false }}
+      >
         <Stack.Screen name="notices" component={Notices} />
       </Stack.Navigator>
     </SafeAreaView>

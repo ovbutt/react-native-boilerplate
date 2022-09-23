@@ -27,7 +27,8 @@ const Login = () => {
     } else {
       setLoading(true);
       setButtonDisabled(true);
-      navigation.replace('appStack');
+      // navigation.replace('appStack');
+      alert('login');
     }
     setLoading(false);
     setButtonDisabled(false);

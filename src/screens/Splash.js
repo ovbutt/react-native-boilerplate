@@ -8,7 +8,7 @@ const Splash = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      navigation.replace('appStack');
+      navigation.replace('authStack');
     }, 3000);
   }, [navigation]);
 
